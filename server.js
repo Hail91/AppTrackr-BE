@@ -3,10 +3,13 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const server = express();
+const morgan = require("morgan");
 
 // Global middleware here...
 server.use(express.json());
 server.use(helmet());
+// Logging Middleware
+server.use(morgan("tiny"));
 // Bring in Cors to prevent cross-origin blocking.
 server.use(cors());
 
