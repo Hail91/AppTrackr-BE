@@ -5,7 +5,11 @@ module.exports = {
   development: {
     client: "postgresql",
     connection: {
-      connection: process.env.DATABASE_URL,
+      host: "localhost",
+      port: 5432,
+      user: "postgres",
+      password: process.env.LOCAL_PASSWORD,
+      database: "AppTrackr",
     },
     migrations: {
       directory: "./data/migrations",
@@ -18,22 +22,22 @@ module.exports = {
       max: 10,
     },
   },
-  // Staging DB settings (Probably won't be used)
-  staging: {
-    client: "postgresql",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
-    migrations: {
-      tableName: "knex_migrations",
-    },
-  },
+  // ** Staging DB settings (Probably won't be used) **
+  // staging: {
+  //   client: "postgresql",
+  //   connection: {
+  //     database: "my_db",
+  //     user: "username",
+  //     password: "password",
+  //   },
+  //   pool: {
+  //     min: 2,
+  //     max: 10,
+  //   },
+  //   migrations: {
+  //     tableName: "knex_migrations",
+  //   },
+  // },
   // Production DB settings
   production: {
     client: "postgresql",
